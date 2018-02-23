@@ -33,6 +33,8 @@ function next() {
 }
 
 const nextControl = document.getElementById('next')
-nextControl.onclick = next
+nextControl.onclick = function () {
+  setImmediate(next)
+}
 
 next()
