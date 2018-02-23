@@ -7,29 +7,21 @@ const vm = require('vm')
 const p5 = require('p5')
 new p5() // force p5 to load globally
 
-const encoding = 'utf8'
-const sketches = fs.readdirSync('./sketches')
+require('./lib/shims/array/rotate')
+require('./lib/shims/khan-academy')
 
-const codes = sketches.map((filename) => fs.readFileSync(`./sketches/${filename}`).toString('utf8'))
+const sketches = fs.readdirSync('./sketches')
+const codes = sketches.map(
+  (filename) => fs.readFileSync(`./sketches/${filename}`).toString('utf8')
+)
 const scripts = codes.map((code) => new vm.Script(code))
 
 const scriptOptions = { filename: 'sketch', displayErrors: true }
 
-Array.prototype.rotate = function () {
-  const item = this.shift()
-  this.push(item)
-
-  return item
-}
-
-// Khan Academy support
-size = function (...params) {
-  createCanvas(...params)
-}
-
-setup = function init() {
+const init = function () {
   createCanvas(400, 400)
 }
+setup = init
 
 setInterval(() => {
   setup = init
