@@ -1,5 +1,5 @@
 draw = function () {
-  background(255)
+  background(230)
   strokeWeight(2)
   stroke('black')
   fill('red')
