@@ -230,7 +230,7 @@ App.prototype.state = function () {
     return this[this.stateMap[this.stateKey()]];
 };
 
-var app = new App({ width: 800, height: 800 });
+var app = new App({ width: windowWidth, height: windowHeight });
 setup = function () {
   size(app.width, app.height)
 }

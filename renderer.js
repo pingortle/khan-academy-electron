@@ -22,15 +22,17 @@ Array.prototype.rotate = function () {
   return item
 }
 
+// Khan Academy support
 size = function (...params) {
   createCanvas(...params)
 }
 
-setup = function () {
+setup = function init() {
   createCanvas(400, 400)
 }
 
 setInterval(() => {
+  setup = init
   scripts.rotate().runInThisContext(scriptOptions)
   setup()
 }, 3000)
