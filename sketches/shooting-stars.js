@@ -39,10 +39,10 @@ var drawShootingStar = function (start, end, speed, startMillis) {
 var drawPath = function (path) {
     strokeWeight(10);
     stroke(60, 201, 28);
-    point(path.start.x, path.start.y);
+    point(path.start.x || 0, path.start.y || 0);
 
     stroke(255, 0, 0);
-    point(path.end.x, path.end.y);
+    point(path.end.x || 0, path.end.y || 0);
 };
 
 var Start = function (path, state) {
@@ -183,7 +183,7 @@ App.prototype.cullDeadStates = function () {
 App.prototype.drawPauseButton = function () {
     var buttonColor = this.locked ? color(0, 255, 0) : color(255, 0, 0);
 
-    fill(buttonColor);
+    fill(buttonColor.toString());
     noStroke();
     rect(0, 0, 50, 50);
 };
