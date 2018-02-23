@@ -19,7 +19,7 @@ const scripts = codes.map((code) => new vm.Script(code))
 const scriptOptions = { filename: 'sketch', displayErrors: true }
 
 const init = function () {
-  createCanvas(400, 400)
+  resizeCanvas(400, 400)
 }
 setup = init
 
